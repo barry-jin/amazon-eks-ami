@@ -601,7 +601,9 @@ if  command -v nvidia-smi &>/dev/null ; then
       echo $GPUNAME
 
       # set application clock to maximum
-      if [[ $GPUNAME == *"A100"* ]]; then
+      if [[ $GPUNAME == *"A100-SXM-80GB"* ]]; then
+         nvidia-smi -ac 1593,1410
+      elif [[ $GPUNAME == *"A100-SXM-40GB"* ]]; then
          nvidia-smi -ac 1215,1410
       elif [[ $GPUNAME == *"V100"* ]]; then
          nvidia-smi -ac 877,1530
